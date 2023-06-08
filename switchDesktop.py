@@ -34,16 +34,16 @@ def createSwitcher():
     frame = ttk.Frame(root)
     frame.pack(fill=tk.BOTH, pady=20)
 
-    textLeft = tk.StringVar(frame)
-    textLeft.set("<")
-    buttonLeft = tk.Button(frame, width=10, textvariable=textLeft, command=switchLeft)
-    buttonLeft.pack(fill='x', padx=20, side='left')
+    text_left = tk.StringVar(frame)
+    text_left.set("<")
+    button_left = tk.Button(frame, width=10, textvariable=text_left, command=switchLeft)
+    button_left.pack(fill='x', padx=20, side='left')
 
-    textRight = tk.StringVar(frame)
-    textRight.set(">")
+    text_right = tk.StringVar(frame)
+    text_right.set(">")
 
-    buttonRight = tk.Button(frame, width=10, textvariable=textRight, command=switchRight)
-    buttonRight.pack(fill='x', padx=20, side='right')
+    button_right = tk.Button(frame, width=10, textvariable=text_right, command=switchRight)
+    button_right.pack(fill='x', padx=20, side='right')
 
 
 root = tk.Tk()
