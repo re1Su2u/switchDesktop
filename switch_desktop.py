@@ -4,15 +4,15 @@ import pyautogui as pgui
 import win32gui
 import win32con
 
-def switchLeft():
+def switch_left():
     pgui.hotkey('ctrl', 'win', 'left')
 
-def switchRight():
+def switch_right():
     pgui.hotkey('ctrl', 'win', 'right')
 
-def appearOnAllDesktop():
+def appear_on_all_desktop():
     p_hWnd = win32gui.FindWindow(None,"DeskTop Switcher")
-    windowTopMost(p_hWnd)
+    window_top_most(p_hWnd)
 
     pgui.hotkey('win', 'tab')
 
@@ -20,29 +20,29 @@ def appearOnAllDesktop():
 
     
 
-    global frameFix
-    frameFix.destroy()
+    global frame_fix
+    frame_fix.destroy()
 
-    createSwitcher()
+    create_switcher()
 
-def windowTopMost(p_hWnd):
+def window_top_most(p_hWnd):
     win32gui.SetWindowPos(p_hWnd,win32con.HWND_TOPMOST,0,0,0,0,win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
 
 
-def createSwitcher():
+def create_switcher():
     global root
     frame = ttk.Frame(root)
     frame.pack(fill=tk.BOTH, pady=20)
 
     text_left = tk.StringVar(frame)
     text_left.set("<")
-    button_left = tk.Button(frame, width=10, textvariable=text_left, command=switchLeft)
+    button_left = tk.Button(frame, width=10, textvariable=text_left, command=switch_left)
     button_left.pack(fill='x', padx=20, side='left')
 
     text_right = tk.StringVar(frame)
     text_right.set(">")
 
-    button_right = tk.Button(frame, width=10, textvariable=text_right, command=switchRight)
+    button_right = tk.Button(frame, width=10, textvariable=text_right, command=switch_right)
     button_right.pack(fill='x', padx=20, side='right')
 
 
@@ -50,12 +50,12 @@ root = tk.Tk()
 root.title("DeskTop Switcher")
 root.geometry("250x100")
 
-frameFix = ttk.Frame(root)
-frameFix.pack(fill=tk.BOTH, pady=20)
+frame_fix = ttk.Frame(root)
+frame_fix.pack(fill=tk.BOTH, pady=20)
 
-textFix = tk.StringVar(frameFix)
-textFix.set('Fix the app')
-buttonFix = tk.Button(frameFix, textvariable=textFix, command=appearOnAllDesktop)
-buttonFix.pack()
+text_fix = tk.StringVar(frame_fix)
+text_fix.set('Fix the app')
+button_fix = tk.Button(frame_fix, textvariable=text_fix, command=appear_on_all_desktop)
+button_fix.pack()
 
 root.mainloop()
